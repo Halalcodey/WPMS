@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Park Management System</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+
+<!-- Header Section -->
+<header>
+  <div class="logosec">
+    <div class="logo">Water Park Management System</div>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+         class="icn menuicn" id="menuicn" alt="menu-icon">
+  </div>
+
+  <div class="searchbar">
+    <input type="text" placeholder="Search">
+    <div class="searchbtn">
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+           class="icn srchicn" alt="search-icon">
+    </div>
+  </div>
+</header>
+
+<div class="main-container">
+  <!-- Navigation Sidebar -->
+  <div class="navcontainer">
+    <nav class="nav">
+      <div class="nav-upper-options">
+        <div class="nav-option option1">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+               class="nav-img" alt="dashboard">
+          <h3> Dashboard</h3>
+        </div>
+
+        <div class="nav-option option2">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img"
+               alt="ticket-booking">
+          <h3> Ticket Booking</h3>
+        </div>
+
+        <div class="nav-option option3">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png" class="nav-img"
+               alt="customer-management">
+          <h3> Pricing Management</h3>
+        </div>
+
+        <div class="nav-option option4">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png" class="nav-img"
+               alt="ride-management">
+          <h3> Ride Management</h3>
+        </div>
+
+        <div class="nav-option option5">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png" class="nav-img"
+               alt="payment-management">
+          <h3> Sales Report</h3>
+        </div>
+
+        <div class="nav-option option6">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png" class="nav-img"
+               alt="employee-management">
+          <h3> User Management</h3>
+        </div>
+
+        <div class="nav-option logout">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png" class="nav-img"
+               alt="logout">
+          <h3> Logout</h3>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main">
+    <!-- Secondary Search Bar -->
+    <div class="searchbar2">
+      <input type="text" name="" id="" placeholder="Search">
+      <div class="searchbtn">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+             class="icn srchicn" alt="search-button">
+      </div>
+    </div>
+
+    <!-- Dashboard Widgets -->
+    <div class="box-container">
+      <!-- Ticket Booking Overview -->
+      <div class="box box1">
+        <div class="text">
+          <h2 class="topic-heading">Ticket Booking</h2>
+          <h2 class="topic">Total Booked: 1,200</h2>
+        </div>
+        <img src="images/img1.png" alt="Ticket Booking">
+      </div>
+
+      <!-- Customer Management Overview -->
+      <div class="box box2">
+        <div class="text">
+          <h2 class="topic-heading">Customer Management</h2>
+          <h2 class="topic">Total Customers: 500</h2>
+        </div>
+        <img src="images/img2.png" alt="Customers">
+      </div>
+
+      <!-- Ride Management Overview -->
+      <div class="box box3">
+        <div class="text">
+          <h2 class="topic-heading">Ride Management</h2>
+          <h2 class="topic">Active Rides: 15</h2>
+        </div>
+        <img src="images/img3.png" alt="Rides">
+      </div>
+
+      <!-- Payment Management Overview -->
+      <div class="box box4">
+        <div class="text">
+          <h2 class="topic-heading">Payment Management</h2>
+          <h2 class="topic">Total Revenue: $25,000</h2>
+        </div>
+        <img src="images/img4.png" alt="Payments">
+      </div>
+    </div>
+
+    <section id="dashboard" class="section">
+
+
+      <div class="charts">
+
+        <div class="charts-card">
+          <h2 class="chart-title" style="color: white;">Top 5 Metrics</h2>
+          <div id="bar-chart"></div>
+        </div>
+
+        <div class="charts-card">
+          <h2 class="chart-title" style="color: white;">Daily Visitors and Revenue</h2>
+          <div id="area-chart"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Detailed Sections -->
+    <section id="ticket-booking" class="section">
+      <div class="section-header">
+        <h1>Ticket Booking</h1>
+        <button class="add-button" id="book-new-ticket-btn">Book New Ticket</button>
+      </div>
+
+
+      <div class="card" id="ticket-form-card" style="display: none;">
+        <div class="card-header">New Ticket</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="customer">Customer</label>
+            <input type="text" id="customer" placeholder="Enter customer name">
+          </div>
+          <div class="form-group">
+            <label for="ticket-for">Ticket For</label>
+            <select id="ticket-for">
+              <option value="">Please select</option>
+              <option value="ride1">Ride 1</option>
+              <option value="ride2">Ride 2</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="no-adult">No. Adult</label>
+            <input type="number" id="no-adult" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="no-child">No. Child</label>
+            <input type="number" id="no-child" placeholder="0">
+          </div>
+          <table class="table">
+            <tr>
+              <th>Type</th>
+              <th>Price</th>
+              <th>Pax</th>
+            </tr>
+            <tr>
+              <td>Adult</td>
+              <td>$0.00</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>$0.00</td>
+              <td>0</td>
+            </tr>
+          </table>
+          <div class="form-group">
+            <label for="amount-tendered">Amount Tendered</label>
+            <input type="number" id="amount-tendered" placeholder="0.00">
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-flat">Save</button>
+          <button class="btn btn-secondary" id="cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+
+      <div class="input-box">
+        <i class="uil uil-search"></i>
+        <input type="text" placeholder="Search for ticket id..." />
+        <button class="button">Search</button>
+      </div>
+
+      <div class="section-content">
+
+        <!-- Ticket Booking Table -->
+        <table id="ticket-table">
+          <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>Customer Name</th>
+            <th>Price</th>
+            <th>Validity</th>
+            <th>Issue Date</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- Data rows will be injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+
+
+
+
+    <!-- Customer Management Section -->
+    <section id="pricing-management" class="section">
+      <div class="section-header">
+        <h1>Pricing Management</h1>
+        <button class="add-button" id="add-pricing-btn">Add Pricing</button>
+      </div>
+
+      <div class="card" id="pricing-form-card" style="display: none;">
+        <div class="card-header">Pricing</div>
+        <div class="card-body">
+          <!-- Ticket For -->
+          <div class="form-group">
+            <label for="ticket-for-pricing">Ticket For</label>
+            <select id="ticket-for-pricing">
+              <option value="">Please select</option>
+              <option value="ride1">Ride 1</option>
+              <option value="ride2">Ride 2</option>
+            </select>
+          </div>
+
+          <!-- Ride/s -->
+          <div class="form-group">
+            <label for="ride-select">Ride/s</label>
+            <select id="ride-select">
+              <option value="">Please select a ride</option>
+              <option value="ride1">Ride 1</option>
+              <option value="ride2">Ride 2</option>
+              <option value="ride3">Ride 3</option>
+            </select>
+          </div>
+
+          <!-- Adult Price -->
+          <div class="form-group">
+            <label for="adult-price">Adult Price</label>
+            <input type="number" id="adult-price" placeholder="Enter price for Adult">
+          </div>
+
+          <!-- Child Price -->
+          <div class="form-group">
+            <label for="child-price">Child Price</label>
+            <input type="number" id="child-price" placeholder="Enter price for Child">
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-flat" id="save-pricing-btn">Save</button>
+          <button class="btn btn-secondary" id="pricing-cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <div class="input-box">
+        <i class="uil uil-search"></i>
+        <input type="text" placeholder="Search Here..." />
+        <button class="button">Search</button>
+      </div>
+
+
+
+
+      <div class="section-content">
+        <!-- Customer Management Table -->
+        <table>
+          <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- Customer rows will be dynamically inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Popup Form for Editing Customer -->
+    <div id="popupForm" class="popup-form">
+      <div class="form-content">
+        <span class="close-btn" id="closePopupBtn">&times;</span>
+        <h2>Edit Customer</h2>
+        <form id="popupContactForm">
+          <div class="input-group">
+            <label for="editName">Name</label>
+            <input type="text" id="editName" placeholder="Enter customer name" required>
+          </div>
+          <div class="input-group">
+            <label for="editAge">Age</label>
+            <input type="number" id="editAge" placeholder="Enter customer age" required>
+          </div>
+          <div class="input-group">
+            <label for="editContactNumber">Contact Number</label>
+            <input type="text" id="editContactNumber" placeholder="Enter contact number" required>
+          </div>
+          <div class="input-group">
+            <label for="editEmail">Email</label>
+            <input type="email" id="editEmail" placeholder="Enter customer email" required>
+          </div>
+          <button type="button" class="btn" id="saveBtn">Save</button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Ride Management Section -->
+    <section id="ride-management" class="section">
+      <div class="section-header">
+        <h1>Ride Management</h1>
+        <button class="add-button" id="add-new-ride-btn">Add New Ride</button>
+      </div>
+
+      <div class="card" id="ride-form-card" style="display: none;">
+        <div class="card-header">New Ride</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="ride-name">Ride Name</label>
+            <input type="text" id="ride-name" placeholder="Enter ride name">
+          </div>
+          <div class="form-group">
+            <label for="ride-description">Description</label>
+            <textarea id="ride-description" rows="1" placeholder="Enter ride description"></textarea>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-flat">Save</button>
+          <button class="btn btn-secondary" id="ride-cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <!-- Ride Management Table -->
+        <div class="input-box">
+          <i class="uil uil-search"></i>
+          <input type="text" placeholder="Search for ride names..." />
+          <button class="button">Search</button>
+        </div>
+        <table>
+          <thead>
+          <tr>
+            <th>Ride ID</th>
+            <th>Name</th>
+            <th>Max Capacity</th>
+            <th>Min Height Requirement</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- Sample Data Rows -->
+          <tr>
+            <td>R001</td>
+            <td>Wave Pool</td>
+            <td>30</td>
+            <td>120 cm</td>
+            <td>Active</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <!-- More Rows as Needed -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+
+
+    <!-- Payment Management Section -->
+    <section id="sales-report" class="section">
+      <div class="section-header">
+        <h1>Sales Report</h1>
+        <button class="add-button" id="add-sales-report-btn">View Sales Report</button>
+      </div>
+
+      <div class="card" id="sales-report-form-card" style="display: none;">
+        <div class="card-header">Sales Report</div>
+        <div class="card-body">
+          <!-- From Date -->
+          <div class="form-group">
+            <label for="from-date">From (Date)</label>
+            <input type="date" id="from-date">
+          </div>
+
+          <!-- To Date -->
+          <div class="form-group">
+            <label for="to-date">To (Date)</label>
+            <input type="date" id="to-date">
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-flat" id="view-report-btn">View Report</button>
+          <button class="btn btn-flat" id="print-report-btn">Print Report</button>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <!-- Payment Management Table -->
+        <table>
+          <thead>
+          <tr>
+            <th>Payment ID</th>
+            <th>Customer Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Payment Method</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- Sample Data Rows -->
+          <tr>
+            <td>P001</td>
+            <td>John Doe</td>
+            <td>$50</td>
+            <td>2024-04-20</td>
+            <td>Credit Card</td>
+            <td>Completed</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <!-- More Rows as Needed -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Employee Management Section -->
+    <section id="user-management" class="section">
+      <div class="section-header">
+        <h1>User Management</h1>
+        <button class="add-button" id="add-new-user-btn">Add New User</button>
+      </div>
+
+      <div class="card" id="user-form-card" style="display: none;">
+        <div class="card-header">New User</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter first name">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Enter last name">
+          </div>
+          <div class="form-group">
+            <label for="user-role">User Role</label>
+            <select id="user-role">
+              <option value="">Please select</option>
+              <option value="admin">Admin</option>
+              <option value="staff">Staff</option>
+              <option value="customer">Customer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter email address">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password">
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Confirm password">
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-flat">Save</button>
+          <button class="btn btn-secondary" id="user-cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <div class="input-box">
+        <i class="uil uil-search"></i>
+        <input type="text" placeholder="Search for user names..." />
+        <button class="button">Search</button>
+      </div>
+
+
+      <div class="section-content">
+        <!-- Employee Management Table -->
+        <table>
+          <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Salary</th>
+            <th>Shift Timing</th>
+            <th>Contact Number</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody id="employee-table-body">
+          <!-- Employee rows will be dynamically inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</div>
+</div>
+
+<!-- ApexCharts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+
+<script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
